@@ -51,7 +51,8 @@ enddef
 # ------------------------------------------------------------------------ }}}
 
 # Internals -------------------------------------------------------------- {{{
-var notification_window: number
+var active_notifications: list<number>
+
 var default_opts = {
   zindex: 200,
   tabpage: -1,
@@ -65,11 +66,16 @@ var default_opts = {
 }
 
 def Notify(message: string, opts: dict<any>): void
-  popup_hide(notification_window)
+  var notification_window: number
+  if active_notifications->len() > 0
+    notification_window = active_notifications->remove(0)
+    popup_hide(notification_window)
+  endif
   notification_window = popup_create(
     PrepareMessage(message),
     extend(PrepareOptions(), opts)
   )
+  active_notifications->add(notification_window)
 enddef
 # ------------------------------------------------------------------------ }}}
 
