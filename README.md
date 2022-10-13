@@ -17,6 +17,7 @@ Plug 'igbanam/vim-notify'
 | `g:vim_notify__width` | How wide a notification should span    |
 | `g:vim_notify__place` | Notification position on the screen    |
 | `g:vim_notify__title` | Notifications are better with a title  |
+| `g:vim_notify__stack` | Notifications should form a list       |
 
 ## Example usage
 
@@ -46,7 +47,7 @@ call NotifyError('Something went wrong. Please check your logs')
 
 ## Roadmap
 
-- [ ] Stack Notifications
+- [x] Stack Notifications
 - [ ] Respect newline characters in notification
 - [ ] Add support for more notification positions on screen
   - [ ] North Central
