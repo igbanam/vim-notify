@@ -105,7 +105,6 @@ def PlaceToPosition(place: string): dict<any>
 
   echoerr "I don't know how to translate <" .. place .. ">"
   throw 'VimNotify::UnknownPlace'
-  return {}
 enddef
 
 def PrepareOptions(): dict<any>
